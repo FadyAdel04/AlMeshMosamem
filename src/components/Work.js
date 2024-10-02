@@ -40,6 +40,7 @@ const Work = ({ language }) => {
     infinite: true,
     speed: 500,
     slidesToShow: 3,
+    autoplay: true,
     slidesToScroll: 1,
     autoplaySpeed: 2000,
     arrows: false,
