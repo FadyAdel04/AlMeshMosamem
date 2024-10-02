@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Courses from "./components/Courses";
+import Work from "./components/Work";
+import Channel from "./components/Channel";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
-function App() {
+const App = () => {
+  const [language, setLanguage] = useState("en"); // Pass language state
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar language={language} setLanguage={setLanguage} /> {/* Pass language and setLanguage */}
+        <Hero language={language} />
+        <Courses language={language} />
+        <Work language={language} />
+        <Channel language={language} />
+        <Contact language={language} />
+        <Footer language={language} />
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;

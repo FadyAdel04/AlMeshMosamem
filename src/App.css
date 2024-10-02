@@ -1,38 +1,994 @@
-.App {
+/* src/App.css */
+@font-face {
+  font-family: Holiday Vibes; /* Replace with your desired font name */
+  src: url('./source/fonts/Holiday\ Vibes\ Free.otf') format('opentype'); /* Adjust the path if needed */
+  font-weight: normal; /* Adjust if you have different font weights */
+  font-style: normal; /* Adjust if you have different font styles */
+}
+
+@font-face {
+  font-family: foda; /* Replace with your desired font name */
+  src: url('./source/Arabicfonts/Foda\ Kufi\ Regular-\ Premium.otf') format('opentype'); /* Adjust the path if needed */
+  font-weight: normal; /* Adjust if you have different font weights */
+  font-style: normal; /* Adjust if you have different font styles */
+}
+
+@font-face {
+  font-family: Alhadari; /* Replace with your desired font name */
+  src: url('./source/Arabicfonts/Alhadari\ Bold.ttf') format('opentype'); /* Adjust the path if needed */
+  font-weight: normal; /* Adjust if you have different font weights */
+  font-style: normal; /* Adjust if you have different font styles */
+}
+
+@font-face {
+  font-family: Rochega-Regular; /* Replace with your desired font name */
+  src: url('./source/fonts/Rochega-Regular\ for\ eng.otf') format('opentype'); /* Adjust the path if needed */
+  font-weight: normal; /* Adjust if you have different font weights */
+  font-style: normal; /* Adjust if you have different font styles */
+}
+
+@font-face {
+  font-family: FalsafehOld; /* Replace with your desired font name */
+  src: url('./source/fonts/FalsafehOld.otf') format('opentype'); /* Adjust the path if needed */
+  font-weight: normal; /* Adjust if you have different font weights */
+  font-style: normal; /* Adjust if you have different font styles */
+}
+
+.language-selector {
+  background-color: transparent; /* Transparent background */
+  color: #ff7316; /* White text color */
+  border: 1px solid #ff7316; /* Orange border */
+  padding: 5px 10px; /* Padding for the selector */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor */
+  margin-left: 20px; /* Space between the selector and profile button */
+}
+
+.language-selector option{
+  background-color: #491313;
+}
+
+.links{
+  color: #ff7316;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar styles for Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Track background color */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ff7316; /* Scrollbar thumb color */
+  border-radius: 10px; /* Rounded edges */
+  border: 3px solid #f1f1f1; /* Padding around the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #ff7316; /* Thumb color on hover */
+}
+
+/* For Firefox */
+* {
+  scrollbar-color: #ff7316 #491a1a; /* Thumb color and track color */
+}
+
+
+body {
+  margin: 0;
+  font-family: 'ArRochega-Regularial', sans-serif;
+  background-color: #270303;
+  color: #ffffff;
+}
+
+.hero {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #ff7316;
+}
+
+
+
+h2, h3 {
+  color: #ff7316;
+}
+
+.about-us, .channel, .contact {
+  padding: 50px 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+@media (max-width: 600px) {
+  .course-cards {
+    flex-direction: column;
+    align-items: center;
+  }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  .course-card {
+    width: 90%;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+
+/* Start Navbar */
+.navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10; /* Ensure it is above other content */
+  background-color: transparent;
+  padding: 0; /* Remove any padding */
+  margin: 0; /* Remove any margin */
+}
+
+.navbar-container {
+  max-width: 1200px; /* Max width for the container */
+  margin: 0 auto; /* Center the container */
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-items: center; /* Align items vertically */
+  justify-content: space-between; /* Space between items */
+  padding: 0 20px; /* Horizontal padding */
+  height: 90px; /* Height of the navbar */
+}
+
+.logo img {
+  height: 100%; /* Maintain image height */
+  width: 200px;
+  padding-top: 5px;
+}
+
+.nav-content {
+  display: flex; /* Flexbox for navigation and buttons */
+  flex: 1; /* Take up remaining space */
+  align-items: center; /* Center align items */
+  justify-content: space-between; /* Space between items */
+}
+
+.nav-links {
+  flex: 1; /* Take remaining space for links */
+  display: flex; /* Flexbox for links */
+  justify-content: center; /* Center the nav items */
+}
+
+.nav-items {
+  display: flex; /* Flexbox for items */
+  font-size: 20px;
+  gap: 24px; /* Space between items */
+  list-style-type: none; /* Remove bullets */
+  cursor: pointer;
+}
+
+.nav-items a {
+  color: #ffffff; /* White text color */
+  transition: color 0.3s; /* Transition for hover effect */
+}
+
+.nav-items a:hover {
+  color: #ff7316; /* Change color on hover */
+}
+
+.auth-buttons {
+  display: flex; /* Flexbox for buttons */
+  align-items: center; /* Center align items */
+  gap: 16px; /* Space between buttons */
+}
+
+.profile-button {
+  padding: 0.625rem 1.25rem; /* Padding for the profile button */
+  background-color: #f3f4f6; /* Light gray background */
+  color: #ff7316; /* Orange text color */
+  border: none; /* No border */
+  border-radius: 0.375rem; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor */
+}
+
+.profile-button:hover {
+  background-color: #e0e0e0; /* Darker gray on hover */
+}
+
+.menu-toggle {
+  background: none; /* No background */
+  border: none; /* No border */
+  color: #ffffff; /* White color */
+  cursor: pointer; /* Pointer cursor */
+  display: none; /* Hide by default */
+}
+
+.menu-icon {
+  height: 20px; /* Icon height */
+  width: 20px; /* Icon width */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Hide links on small screens */
+    flex-direction: column; /* Stack links vertically */
+    position: absolute; /* Position absolutely */
+    top: 64px; /* Align below the navbar */
+    left: 0; /* Align to the left */
+    right: 0; /* Align to the right */
+    background-color: rgba(0, 0, 0, 0.9); /* Background color */
+    padding: 20px 0; /* Padding */
+    z-index: 9; /* Z-index for stacking */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  }
+
+  .nav-links.active {
+    display: flex; /* Show when active */
+  }
+
+  .menu-toggle {
+    display: block; /* Show the toggle button on small screens */
+  }
+
+  .nav-items {
+    flex-direction: column; /* Stack links vertically */
+    gap: 15px; /* Space between items */
+  }
+
+  .nav-items a {
+    padding: 12px 20px; /* Padding for links */
+    width: 100%; /* Full width */
+    text-align: center; /* Center align text */
+    border-radius: 5px; /* Rounded corners for links */
+    transition: background-color 0.3s; /* Transition for background effect */
+  }
+
+  .nav-items a:hover {
+    background-color: rgba(255, 115, 22, 0.2); /* Light hover effect */
+  }
+}
+/* End Navbar */
+
+
+/* ---------------------------------------------------------------------------------------------------------------------------- */
+
+/*start Hero */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding: 0; /* Remove any padding */
+  margin: 0;  /* Remove any margin */
+  overflow: hidden;
+  z-index: 1; /* Ensure the hero section stays behind the navbar */
+}
+
+.hero-slider .slick-list {
+  height: 100%;
+}
+
+.hero-slide {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.hero-slide-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  z-index: 0;
+}
+
+
+/*end Hero */
+
+/* start courses */
+.courses {
+  padding: 2rem;
+}
+
+.section-title {
+  text-align: center;
+  color: #fff; /* Title color */
+}
+
+/* English font */
+.section-title.en {
+  font-family: "Holiday Vibes", sans-serif; /* English font */
+}
+
+/* Arabic font */
+.section-title.ar {
+  font-family: "foda", sans-serif; /* Replace with your Arabic font */
+  font-weight: 100;
+}
+
+.course-cards {
+  display: flex;
+  flex-direction: column; /* Default to column for small screens */
+  gap: 2rem;
+}
+
+.course-card {
+  display: flex;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #270303; /* Background color for card */
+}
+
+.course-image {
+  width: 450px; /* Fixed width */
+  height: 560px; /* Fixed height */
+  object-fit: cover;
+  padding: 5px; /* Padding around the image */
+  border-radius: 8px; /* Rounded corners */
+}
+
+.course-body {
+  padding: 0.4rem 0.9rem;
+  flex: 1;
+}
+
+.course-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #fff; /* Title color */
+  font-size: 48px;
+  font-weight: 1px;
+}
+
+/* English font */
+.course-title.en {
+  font-family: "Rochega-Regular", sans-serif; /* English font */
+}
+
+/* Arabic font */
+.course-title.ar {
+  font-family: "Alhadari", sans-serif; /* Replace with your Arabic font */
+  text-align: right;
+}
+
+.course-instructor {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #c95f00; /* Instructor color */
+}
+
+/* English font */
+.course-instructor.en {
+  font-family: "Rochega-Regular"; /* English font */
+}
+
+/* Arabic font */
+.course-instructor.ar {
+  font-family: "Alhadari"; /* Replace with your Arabic font */
+  text-align: right;
+}
+
+.course-description {
+  margin-bottom: 1rem;
+  font-size: 20px;
+  line-height: 1.5; /* Line height for readability */
+}
+
+/* English font */
+.course-description.en {
+  font-family: "FalsafehOld"; /* English font */
+}
+
+/* Arabic font */
+.course-description.ar {
+  font-family: "Alhadari"; /* Replace with your Arabic font */
+  text-align: right;
+}
+
+.course-points {
+  margin-bottom: 0.5rem; /* Reduced margin between points */
+  color: #270303; /* Color for points */
+}
+
+.course-points.en {
+  font-family: "Rochega-Regular"; /* Font for English */
+}
+
+.course-points.ar {
+  font-family: "foda"; /* Font for Arabic */
+  font-size: large;
+}
+
+.program-section {
+  margin-bottom: 0.5rem; /* Reduced spacing between sections */
+}
+
+.toggle-header {
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: space-between;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 15px;
+  background-color: #fff;
+  color: #491313;
+  padding: 5px;
+  border-radius: 5px;
+  transition: color 0.2s ease; /* Smooth color transition */
+}
+
+.program-icon {
+  width: 30px; /* Adjust icon size */
+  height: 30px; /* Adjust icon size */
+  margin-right: 10px; /* Space between icon and text */
+}
+
+.lesson-list {
+  padding-left: 1rem; /* Indentation for the lesson list */
+  transition: max-height 0.3s ease; /* Smooth transition for max-height */
+  overflow: hidden; /* Hides overflow when closed */
+  list-style: none; /* Remove bullet points */
+  text-align: center;
+  font-family: 'Alhadari';
+}
+
+.lesson-grid {
+  display: grid;
+  gap: 0.5rem; /* Space between items */
+}
+
+/* English specific styles */
+.lesson-grid.en {
+  grid-template-columns: repeat(2, 1fr); /* Two columns for English */
+}
+
+/* Arabic specific styles */
+.lesson-grid.ar {
+  grid-template-columns: repeat(2, 1fr); /* Two columns for Arabic */
+  direction: rtl; /* Right-to-left for Arabic */
+}
+
+.lesson-grid li {
+  background-color: #270303; /* Light background for lesson items */
+  color: #fff;
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 4px; /* Rounded corners */
+  padding: 0.5rem; /* Inner padding */
+  transition: background-color 0.3s ease; /* Smooth background transition */
+}
+
+.lesson-grid li:hover {
+  background-color: #491313; /* Change background on hover */
+  color: white; /* Change text color on hover */
+}
+
+.lesson-list:not(.open) {
+  max-height: 0; /* Collapses when closed */
+}
+
+
+.course-price-whatsapp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.course-price {
+  display: flex;
+  font-size: 24px;
+  align-items: center;
+  background-color: #ff7316;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
   color: white;
+  transition: background-color 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.course-price:hover{
+  background-color: #c95f00;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.whatsapp-btn {
+  display: flex;
+  align-items: center;
+  background-color: #25d366;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: white;
+  cursor: pointer;
+  font-size: 24px;
+  transition: background-color 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+  background-color: #1ebea5;
+}
+
+.whatsapp-icon {
+  width: 35px;
+  height: 35px;
+  margin-right: 8px;
+}
+
+/* Media Queries for Responsiveness */
+
+@media (max-width: 768px) {
+  .course-cards {
+    flex-direction: column; /* Stack cards vertically on smaller screens */
   }
-  to {
-    transform: rotate(360deg);
+
+  .course-card {
+    flex-direction: column; /* Stack image and body vertically */
+    width: 100%; /* Full width for cards */
+    max-width: none; /* Remove max width for responsiveness */
+  }
+
+  .course-image {
+    width: 100%; /* Full width for image */
+    height: auto; /* Auto height for images */
   }
 }
+
+@media (max-width: 480px) {
+  .course-title {
+    font-size: 1.3rem; /* Smaller title size on extra small screens */
+  }
+
+  .course-instructor {
+    font-size: 1rem; /* Smaller instructor size */
+  }
+
+  .course-description {
+    font-size: 0.9rem; /* Smaller description size */
+  }
+
+  .course-price {
+    font-size: 1rem; /* Smaller price size */
+  }
+
+  .toggle-header {
+    font-size: 14px; /* Smaller toggle header size */
+  }
+}
+/* end courses */
+
+/* start work */
+.work-slider-container {
+  border: 1px solid #ddd;
+  border-radius: 8px; /* Rounded corners */
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.work-item {
+  text-align: center;
+}
+
+.work-item img {
+  width: 100%;
+  border-radius: 8px; /* Rounded corners */
+  height: auto;
+}
+
+.slick-list {
+  padding: 0 10px; /* Optional: Adds a bit of padding to the entire slider area */
+}
+
+.slick-prev,
+.slick-next {
+  color: black !important;
+}
+
+.slick-dots li button:before {
+  font-size: 12px;
+  color: black !important;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #000 !important;
+}
+/* end work */
+
+/* start channel */
+.channel {
+  border: 1px solid #ddd;
+  border-radius: 8px; /* Rounded corners */
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.channel span {
+  color: #c95f00;
+}
+
+/* Channel Stats Section */
+.channel-stats {
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Evenly distribute space between items */
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+  margin: 20px 0; /* Margin above and below the stats */
+}
+
+/* Individual Stat Box */
+.stat {
+  flex: 1;
+  padding: 1rem;
+  margin: 0.5rem; /* Adjust margin for better spacing */
+  text-align: center;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Stat Font Styles for Languages */
+.stat.en {
+  font-family: "Rochega-Regular"; /* Font for English */
+}
+
+.stat.ar {
+  font-family: "Alhadari"; /* Font for Arabic */
+}
+
+/* Stat Box Hover Effect */
+.stat:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Shadow on hover */
+}
+
+/* Stat Headings */
+.stat h3 {
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.stat span {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ff7316; /* Orange color */
+}
+
+/* YouTube Stats Section */
+.youtube-stats {
+  margin-top: 20px; /* Space above stats sections */
+}
+
+/* YouTube Stats Font Styles for Languages */
+.youtube-stats.en {
+  font-family: "Rochega-Regular"; /* Font for English */
+}
+
+.youtube-stats.ar {
+  font-family: "Alhadari"; /* Font for Arabic */
+}
+
+/* Contact Section */
+.contactSection {
+  margin-top: 20px; /* Space above contact section */
+}
+
+/* Contact Section Font Styles for Languages */
+.contactSection.en {
+  font-family: "Rochega-Regular"; /* Font for English */
+}
+
+.contactSection.ar {
+  font-family: "Alhadari"; /* Font for Arabic */
+}
+
+/* Stats Section Headings */
+.youtube-stats h3,
+.contactSection h3 {
+  font-size: 1.5em; /* Heading size */
+  margin-bottom: 10px; /* Space below heading */
+}
+
+/* Links in Stats Sections */
+.youtube-stats a,
+.contactSection a {
+  color: #ff7316; /* Customize link color */
+  text-decoration: none; /* Remove underline */
+  transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+/* Link Hover Effect */
+.youtube-stats a:hover,
+.contactSection a:hover {
+  color: #930a1e; /* Darker shade on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .channel {
+    padding: 15px; /* Adjust padding for smaller screens */
+  }
+
+  .channel-stats {
+    flex-direction: column; /* Stack items vertically */
+    align-items: stretch; /* Stretch items to full width */
+  }
+
+  .stat {
+    width: 90%; /* Full width for stacked items */
+    margin: 10px 0; /* Space between stacked items */
+  }
+
+  .youtube-stats,
+  .contactSection {
+    margin-top: 15px; /* Reduce space for smaller screens */
+  }
+
+  .youtube-stats h3,
+  .contactSection h3 {
+    font-size: 1.25em; /* Smaller heading size for mobile */
+  }
+}
+/* end channel */
+
+/* Start contact */
+.contact {
+  padding: 2rem;
+  width: 90%;
+  max-width: 1200px; /* Maximum width to prevent stretching */
+  margin: auto; /* Center the contact section */
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 3rem;
+  color: #fff; /* Title color */
+  font-family: "Holiday Vibes";
+}
+
+.contact-card {
+  margin: 0 auto; /* Center the contact card */
+  display: flex;
+  justify-content: center;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #270303; /* Background color for card */
+  flex-direction: row; /* Default to row layout */
+}
+
+.contact-header {
+  padding: 1rem;
+  flex: 1; /* Takes available space */
+}
+
+.contact-title {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #ff7316; /* Title color */
+}
+
+.contact-title.en {
+  font-family: "Rochega-Regular"; /* Font for English */
+}
+
+.contact-title.ar {
+  font-family: "Alhadari"; /* Font for Arabic */
+}
+
+.contact-image {
+  width: 400px; /* Full width for image */
+  height: 400px; /* Auto height for images */
+  border-radius: 8px; /* Rounded corners */
+  object-fit: cover; /* Maintain aspect ratio */
+}
+
+.contact-form-section {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 10px; /* Rounded corners */
+  padding: 30px;
+  flex: 1; /* Takes available space */
+}
+
+.form-group {
+  margin-bottom: 20px; /* Space between form fields */
+  text-align: left;
+}
+
+.form-group.en {
+  font-family: "Holiday Vibes"; /* Font for English */
+}
+
+.form-group.ar {
+  font-family: "Alhadari"; /* Font for Arabic */
+  text-align: right;
+}
+
+.form-title {
+  color: #c95f00; /* Title color */
+}
+
+.form-title.en {
+  font-family: "Holiday Vibes"; /* Font for English */
+}
+
+.form-title.ar {
+  font-family: "Alhadari"; /* Font for Arabic */
+}
+
+.input-field {
+  width: 100%; /* Full width for inputs */
+  padding: 7px; /* Inner padding */
+  border-radius: 8px; /* Rounded corners */
+  border: 2px solid #ff7316; /* Orange border */
+  background-color: #270303; /* Dark background for inputs */
+  color: #fff; /* White text */
+  transition: border-color 0.3s ease; /* Transition for focus effect */
+  height: 30px;
+}
+
+.input-field-message {
+  width: 100%;
+  padding: 7px;
+  border-radius: 8px;
+  border: 2px solid #ff7316;
+  background-color: #270303;
+  color: white;
+  margin-bottom: 15px;
+  transition: box-shadow 0.3s ease;
+  height: 90px; /* Fixed height */
+  resize: none; /* Prevent resizing */
+}
+
+.input-field,
+.input-field-message:focus {
+  outline: none; /* Remove default outline */
+  border-color: #ff7316; /* Change border color on focus */
+}
+
+.submit-btn {
+  background-color: #ff7316; /* Orange button */
+  color: white; /* White text */
+  padding: 10px 20px; /* Inner padding */
+  border: none; /* No border */
+  width: 120px;
+  border-radius: 6px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor */
+  transition: background-color 0.3s ease; /* Transition for hover effect */
+}
+
+.submit-btn:hover {
+  background-color: #930a1e; /* Dark red on hover */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .contact-card {
+    flex-direction: column; /* Stack image and body vertically */
+    margin-left: 0; /* Remove left margin */
+    padding: 1rem; /* Add padding for mobile */
+  }
+
+  .contact-image {
+    width: 100%; /* Full width for image */
+    height: auto; /* Auto height for images */
+  }
+
+  .contact-title {
+    text-align: center; /* Center title on mobile */
+  }
+
+  .contact-form-section {
+    margin-top: 1rem; /* Add space between image and form */
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 2.5rem; /* Smaller font size on very small screens */
+  }
+
+  .form-title {
+    font-size: 1.5rem; /* Adjust form title size */
+  }
+
+  .input-field,
+  .input-field-message {
+    font-size: 0.9rem; /* Smaller font size for inputs */
+  }
+
+  .submit-btn {
+    width: 100%; /* Full width for submit button */
+  }
+}
+/* end contact */
+
+/* start footer */
+.footer {
+  background-color: transparent;
+  padding: 10px 0;
+  width: 100%;
+}
+
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+  flex: 1;
+}
+
+.footer-left {
+  text-align: left;
+}
+
+.footer-center {
+  text-align: center;
+}
+
+.footer-right {
+  text-align: right;
+}
+
+.footer h3 {
+  font-size: 1rem;
+  color: white;
+  margin: 0.5rem 0;
+}
+
+.footer-icons {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.social-icon {
+  margin-left: 15px;
+}
+
+.social-icon a {
+  color: white;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.social-icon a:hover {
+  color: #ff7316;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+  .footer-row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-left,
+  .footer-center,
+  .footer-right {
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  .footer-icons {
+    justify-content: center;
+  }
+}
+/* end footer */
