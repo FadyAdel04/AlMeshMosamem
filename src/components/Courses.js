@@ -23,14 +23,9 @@ const Courses = ({ language }) => {
                 />
                 {/* Course price and WhatsApp button */}
                 <div className="course-price-whatsapp">
-                  <span className="course-price">E£{course.price}</span>{" "}
+                  <span className="course-price">E£{course.price}</span>
                   {/* Display the course price */}
                   <button className="whatsapp-btn">
-                    <img
-                      src={whatsApp}
-                      alt="WhatsApp"
-                      className="whatsapp-icon"
-                    />
                     {translations[language].course.booknow}
                   </button>
                 </div>

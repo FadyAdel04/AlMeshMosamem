@@ -396,7 +396,6 @@ h2, h3 {
 }
 
 .course-points {
-  margin-bottom: 0.5rem; /* Reduced margin between points */
   color: #270303; /* Color for points */
 }
 
@@ -409,28 +408,31 @@ h2, h3 {
   font-size: large;
 }
 
-.program-section {
-  margin-bottom: 0.5rem; /* Reduced spacing between sections */
-}
-
 .toggle-header {
   display: flex;
   align-items: center; /* Center vertically */
   justify-content: space-between;
   cursor: pointer;
-  font-weight: bold;
-  font-size: 15px;
+  font-weight: lighter;
+  font-size: 25px;
   background-color: #fff;
   color: #491313;
   padding: 5px;
   border-radius: 5px;
-  transition: color 0.2s ease; /* Smooth color transition */
+  transition: color 0.2s ease;
+  margin-bottom: 0; /* Remove bottom margin to reduce space */
+}
+
+
+
+.toggle-header + .toggle-header {
+  margin-top: 5px; /* Minimal space between titles */
 }
 
 .program-icon {
-  width: 30px; /* Adjust icon size */
-  height: 30px; /* Adjust icon size */
-  margin-right: 10px; /* Space between icon and text */
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
 }
 
 .lesson-list {
@@ -479,46 +481,57 @@ h2, h3 {
 
 .course-price-whatsapp {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column; /* Stack price and button vertically */
+  align-items: flex-start; /* Align both elements to the left */
+  gap: 10px; /* Add space between price and button */
+  width: 100%;
 }
 
 .course-price {
-  display: flex;
   font-size: 24px;
-  align-items: center;
   background-color: #ff7316;
   border: none;
   border-radius: 8px;
   padding: 8px 12px;
   color: white;
   transition: background-color 0.3s ease;
+  width: 90%;
+  align-items: center;
+  text-align: center;
+  margin: auto;
 }
 
-.course-price:hover{
+.course-price:hover {
   background-color: #c95f00;
 }
 
 .whatsapp-btn {
   display: flex;
   align-items: center;
-  background-color: #25d366;
+  background-color: #fff;
   border: none;
   border-radius: 8px;
   padding: 8px 12px;
-  color: white;
+  color: #270303;
   cursor: pointer;
-  font-size: 24px;
+  font-weight: bold;
+  font-size: 18px; /* Adjust font size for a better fit */
   transition: background-color 0.3s ease;
+  width: 95%;
+  text-align: center;
+  justify-content: center;
+  margin: auto;
+  font-family: "Alhadari";
 }
 
 .whatsapp-btn:hover {
-  background-color: #1ebea5;
+  background-color: #443737;
+  color: #fff;
 }
 
 .whatsapp-icon {
-  width: 35px;
-  height: 35px;
+  width: 30px; /* Slightly smaller icon */
+  height: 30px;
   margin-right: 8px;
 }
 
@@ -663,7 +676,36 @@ h2, h3 {
 /* YouTube Stats Section */
 .youtube-stats {
   margin-top: 20px; /* Space above stats sections */
+  text-align: center; /* Ensure the content inside is centered */
 }
+
+.centered-btn {
+  display: flex;
+  justify-content: center; /* Center the button horizontally */
+}
+
+.youtube-btn {
+  display: flex;
+  align-items: center;
+  background-color: #ff0000; /* YouTube red */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.youtube-btn:hover {
+  background-color: #cc0000; /* Darker YouTube red on hover */
+}
+
+.youtube-icon {
+  margin-right: 8px;
+  font-size: 20px;
+}
+
 
 /* YouTube Stats Font Styles for Languages */
 .youtube-stats.en {
