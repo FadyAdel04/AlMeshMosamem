@@ -2,21 +2,48 @@ import React, { useState } from "react";
 import contactImage from "../source/contact.jpg"; // Using your uploaded image
 import { FaPaperPlane } from 'react-icons/fa';
 import { translations } from '../translations/translations'; // Import your translations
+import emailjs from 'emailjs-com'; // Import EmailJS
+import { ToastContainer, toast } from 'react-toastify'; // Import ToastContainer and toast
+import 'react-toastify/dist/ReactToastify.css'; // Import toast styles
 
 const Contact = ({ language }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
+    mobile: "", // Include mobile in the state
   });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+
+    // Check if the input is for mobile and filter out non-numeric characters
+    if (name === 'mobile') {
+      // Only allow digits
+      const filteredValue = value.replace(/[^0-9]/g, '');
+      setFormData({ ...formData, [name]: filteredValue });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic
+
+    // EmailJS parameters
+    const serviceId = 'service_lkkr0ta'; // Add your service ID
+    const templateId = 'template_1cpb7z4'; // Add your template ID
+    const userId = 'rGMcvkTggEP-sVn3V'; // Add your user ID from EmailJS dashboard
+
+    // Send form data via EmailJS
+    emailjs.send(serviceId, templateId, formData, userId)
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
+        toast.success(translations[language].contactSection.successMessage); // Show success toast
+      }, (err) => {
+        console.log('FAILED...', err);
+        toast.error(translations[language].contactSection.errorMessage); // Show error toast
+      });
   };
 
   return (
@@ -28,7 +55,6 @@ const Contact = ({ language }) => {
           <img src={contactImage} alt="Contact Me" className="contact-image" />
           <h3 className="contact-title">
             {translations[language].contactSection.contactTitle}
-            
           </h3>
         </div>
 
@@ -58,6 +84,19 @@ const Contact = ({ language }) => {
                 className="input-field"
               />
             </div>
+            {/* Mobile Number Input */}
+            <div className={`form-group ${language}`}>
+              <label>{translations[language].contactSection.mobileLabel}</label>
+              <input
+                type="tel"
+                name="mobile"
+                value={formData.mobile}
+                onChange={handleChange}
+                required
+                className="input-field"
+                inputMode="numeric"
+              />
+            </div>
             <div className={`form-group ${language}`}>
               <label>{translations[language].contactSection.messageLabel}</label>
               <textarea
@@ -74,6 +113,7 @@ const Contact = ({ language }) => {
           </form>
         </div>
       </div>
+      <ToastContainer /> {/* Add ToastContainer here */}
     </section>
   );
 };

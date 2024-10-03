@@ -1,10 +1,12 @@
 import React from "react";
-import { AiFillYoutube, AiFillFacebook } from "react-icons/ai";
+import { AiFillYoutube, AiFillFacebook, AiOutlineWhatsApp } from "react-icons/ai"; // Import WhatsApp icon
 import { translations } from '../translations/translations'; // Import your translations
 
 function Footer({ language }) {
   const date = new Date();
   const year = date.getFullYear();
+  const phoneNumber = "01127436064"; // Add your phone number here (replace with the actual number)
+  const message = "Hello, I would like to inquire about your services."; // Static message to send
 
   return (
     <div className="footer">
@@ -53,6 +55,15 @@ function Footer({ language }) {
                 rel="noopener noreferrer"
               >
                 <AiFillFacebook />
+              </a>
+            </li>
+            <li className="social-icon">
+              <a
+                href={`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`} // WhatsApp link with pre-filled message
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <AiOutlineWhatsApp />
               </a>
             </li>
           </ul>
