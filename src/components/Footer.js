@@ -5,8 +5,8 @@ import { translations } from '../translations/translations'; // Import your tran
 function Footer({ language }) {
   const date = new Date();
   const year = date.getFullYear();
-  const phoneNumber = "201127436064"; // Add your phone number here (replace with the actual number)
-  const message = "Hello, I would like to inquire about your services."; // Static message to send
+  const phoneNumber = "201127436064";
+  const message = "مرحبًا، أود الاستفسار عن خدماتك.";
 
   return (
     <div className="footer">
